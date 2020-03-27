@@ -12,11 +12,11 @@ CREATE TABLE users (
   address VARCHAR(255) NOT NULL,
   phone VARCHAR(20) NOT NULL,
   location GEOMETRY,
-  type ENUM('customer', 'seller') DEFAULT 'customer'
+  type ENUM('buyer', 'seller') DEFAULT 'buyer'
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE seller_products (
-  provider_product_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  seller_product_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL,
   product_id INT UNSIGNED NOT NULL,
   price DECIMAL(10, 2) NOT NULL DEFAULT 0,

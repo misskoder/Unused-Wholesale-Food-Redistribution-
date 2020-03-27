@@ -1,6 +1,6 @@
 CREATE TABLE products (
   product_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL
 ) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE users (
@@ -23,6 +23,7 @@ CREATE TABLE seller_products (
   will_donate TINYINT(1) UNSIGNED NOT NULL,
   quantity INT UNSIGNED NOT NULL,
   notes TEXT,
+  visible TINYINT(1) NOT NULL DEFAULT 1,
   INDEX(price),
   INDEX(will_donate),
   FOREIGN KEY (user_id)

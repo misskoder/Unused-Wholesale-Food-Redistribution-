@@ -23,4 +23,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-token-auth/', obtain_auth_token),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api/', include('sellers.urls', namespace='sellers'), name='sellers'),
+    path('api/', include('products.urls', namespace='products'), name='products'),
 ]

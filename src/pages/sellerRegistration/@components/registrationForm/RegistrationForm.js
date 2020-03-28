@@ -31,6 +31,16 @@ const RegistrationForm = ({onSubmit}) => {
 								</Column>
 							</Row>
 							<Row verticalAlign="middle" textAlign="center">
+								<Column style={{ marginBottom: 14 }}>
+									<Label ribbon color="green">
+										Phone
+									</Label>
+								</Column>
+								<Column>
+									<Field name="phone" component={Input} />
+								</Column>
+							</Row>
+							<Row verticalAlign="middle" textAlign="center">
 								<Column floated="right">
 									<Button color="teal">Submit</Button>
 								</Column>

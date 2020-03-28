@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Field } from "react-final-form";
-import { Input, Label } from "semantic-ui-react";
+import { Input, Label, Button } from "semantic-ui-react";
 
 const ConsumerRegistration = () => {
 	const onSubmit = values => {
@@ -10,18 +10,13 @@ const ConsumerRegistration = () => {
 		<Form onSubmit={onSubmit}>
 			{({ handleSubmit }) => {
 				return (
-					<form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit}>
+                        <Label>Name</Label>
 						<Field
-							name="name"
-							render={() => {
-								return (
-									<>
-										<Label>Name</Label>
-										<Input />
-									</>
-								);
-							}}
-						/>
+                            name="name"
+                            component={Input}
+                        />
+                        <Button onClick={handleSubmit}>Submit</Button>
 					</form>
 				);
 			}}

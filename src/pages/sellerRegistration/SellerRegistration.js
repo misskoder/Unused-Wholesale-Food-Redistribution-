@@ -1,12 +1,23 @@
 import React from "react";
 import { Grid, Container, Icon, Card } from "semantic-ui-react";
 import { RegistrationForm } from "./@components";
+import api from "../../api/api";
 
 const SellerRegistration = () => {
 	const { Row, Column } = Grid;
 	const onSubmit = values => {
 		console.log(values);
 	};
+	api.sellers.insert({
+		name: "test seller",
+		address: "test address",
+		phone: "test phone"
+	}).then(response => {
+		console.log(response)
+	});
+	api.sellers.get().then(response => {
+		console.log(response)
+	});
 	return (
 		<Container>
 			<Card centered fluid>

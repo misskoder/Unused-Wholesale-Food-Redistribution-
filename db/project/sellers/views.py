@@ -13,9 +13,5 @@ class SellerList(generics.ListCreateAPIView):
     serializer_class = SellerSerializer
     queryset = ''
 
-    def post(self, request):
-        serializer = SellerCreateSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request, format=None):
+        return Response("ok")

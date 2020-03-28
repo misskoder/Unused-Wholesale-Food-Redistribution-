@@ -6,7 +6,7 @@ from products import views
 
 app_name = 'products'
 urlpatterns = [
-    path('products/', views.ProductList.as_view(), name='product list'),
+    path('products', views.ProductList.as_view(), name='product list'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

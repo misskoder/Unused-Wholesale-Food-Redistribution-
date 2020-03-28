@@ -9,7 +9,7 @@ const ENDPOINTS = {
 export default {
     sellers: {
         insert(params) {
-            return http.post(ENDPOINTS.sellers, params)
+            return http.post(ENDPOINTS.SELLERS, params)
         },
         get() {
             return http.get(ENDPOINTS.SELLERS)

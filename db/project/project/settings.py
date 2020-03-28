@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'foodconnectapi',
+    'sellers',
+    'products',
 ]
 
 REST_FRAMEWORK = {

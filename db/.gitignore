@@ -1,0 +1,4 @@
+FoodconnectEnv/
+db.sqlite3
+__pycache__/
+.vscode/

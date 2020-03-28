@@ -1,6 +1,6 @@
 CREATE TABLE products (
   product_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL,
 ) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE users (
@@ -12,18 +12,17 @@ CREATE TABLE users (
   address VARCHAR(255) NOT NULL,
   phone VARCHAR(20) NOT NULL,
   location GEOMETRY,
-  type ENUM('buyer', 'seller') DEFAULT 'buyer'
+  type ENUM('customer', 'seller') DEFAULT 'customer'
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE seller_products (
-  seller_product_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  provider_product_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL,
   product_id INT UNSIGNED NOT NULL,
   price DECIMAL(10, 2) NOT NULL DEFAULT 0,
   will_donate TINYINT(1) UNSIGNED NOT NULL,
   quantity INT UNSIGNED NOT NULL,
   notes TEXT,
-  visible TINYINT(1) NOT NULL DEFAULT 1,
   INDEX(price),
   INDEX(will_donate),
   FOREIGN KEY (user_id)

@@ -7,16 +7,16 @@ const LandingPage = () => {
 	const { Column, Row } = Grid;
 	return (
 		<>
-			<Grid className="container" stackable columns={3} divided verticalAlign="middle" textAlign="center">
+			<Grid className="landing_page_container" stackable columns={3} divided verticalAlign="middle" textAlign="center">
 				<Row>
 					<Column>
-						<CardType color="red" title="Wholesale Providers" navigationRoute="wholesale" />
+						<CardType color="red" title="Sellers" navigationRoute="seller" />
 					</Column>
 					<Column>
-						<CardType color="green" title="Consumers" navigationRoute='consumers'/>
+						<CardType color="green" title="Buyers" navigationRoute="consumers" />
 					</Column>
 					<Column>
-						<CardType color="blue" title="Delivery Agents" navigationRoute='delivery'/>
+						<CardType color="blue" title="Delivery Agents" navigationRoute="delivery" />
 					</Column>
 				</Row>
 			</Grid>

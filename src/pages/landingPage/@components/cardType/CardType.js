@@ -1,14 +1,17 @@
 import React from 'react'
-import {Card, Divider, Button} from 'semantic-ui-react'
+import { Card, Divider, Button } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
-const CardType = ({title}) => {
+const CardType = ({title, color, navigationRoute}) => {
     return (
-		<Card centered>
+		<Card color={color} centered>
 			<Card.Content>
-                <Card.Header>{title}</Card.Header>
+				<Card.Header>{title}</Card.Header>
 				<Divider />
-				<Button floated="left" color="teal">
-					Register
+				<Button color='teal'>
+					<Link style={{ color: "white" }} to={`/register/${navigationRoute}`}>
+						Register
+					</Link>
 				</Button>
 				<Button floated="right">Login</Button>
 			</Card.Content>

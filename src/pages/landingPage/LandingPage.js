@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
-import {CardType} from './@components'
+import { CardType } from "./@components";
 import "./landingPage.css";
 
 const LandingPage = () => {
@@ -10,13 +10,13 @@ const LandingPage = () => {
 			<Grid className="container" stackable columns={3} divided verticalAlign="middle" textAlign="center">
 				<Row>
 					<Column>
-						<CardType title="Wholesale Providers" />
+						<CardType color="red" title="Wholesale Providers" navigationRoute="wholesale" />
 					</Column>
 					<Column>
-						<CardType title="Consumers" />
+						<CardType color="green" title="Consumers" navigationRoute='consumers'/>
 					</Column>
 					<Column>
-						<CardType title="Delivery Agents" />
+						<CardType color="blue" title="Delivery Agents" navigationRoute='delivery'/>
 					</Column>
 				</Row>
 			</Grid>

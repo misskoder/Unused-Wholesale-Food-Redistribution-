@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, Grid, Divider } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import {CardType} from './@components'
 import "./landingPage.css";
 

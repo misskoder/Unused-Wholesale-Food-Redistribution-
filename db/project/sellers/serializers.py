@@ -7,10 +7,10 @@ class SellerCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Seller
-        fields = ('name', 'address', 'phone')
+        fields = ('id', 'name', 'address', 'phone')
 
 class SellerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Seller
-        fields = ('name', 'address', 'phone')
+        fields = ('id', 'name', 'address', 'phone')

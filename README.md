@@ -1,6 +1,6 @@
 This is the front end for the wholesale food redistribution app
 
-<h2>Steps to Set up Backend</h2>
+##Steps to Set up Backend
 cd db/project
 
 <h3>Create your OSX virtual environment in Terminal:</h3>

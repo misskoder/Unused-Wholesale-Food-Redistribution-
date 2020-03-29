@@ -1,3 +1,4 @@
+import django_filters
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseServerError
 from rest_framework import generics, status
@@ -13,6 +14,7 @@ class ProductList(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
 
     def get(self, request):
         products = Product.objects.all()
@@ -26,6 +28,6 @@ class ProductList(generics.ListCreateAPIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class ProductDetail(generics.RetrieveDestroyAPIView):
+class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

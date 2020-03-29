@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Table, Menu, Icon, Header, Button } from "semantic-ui-react";
 import { ContactSellerModal } from "./@components";
 import api from "../../api/api";
@@ -7,6 +8,7 @@ const ProductsTable = () => {
 	const [products, setProducts] = useState([]);
 	const [sellerId, setSellerId] = useState(null);
 	const [seller, setSeller] = useState(null);
+	const history = useHistory();
 
 	useEffect(() => {
 		const fetchProducts = async () => {
@@ -25,8 +27,8 @@ const ProductsTable = () => {
 			try {
 				// There currently isn't a route in the server to return a single seller by its id, so for now I'm getting all sellers and filtering
 				let sellerData = await api.sellers.getById(sellerId);
-                sellerData = sellerData.data.results.filter(seller => seller.id === sellerId)
-				setSeller(sellerData[0])
+				sellerData = sellerData.data.results.filter(seller => seller.id === sellerId);
+				setSeller(sellerData[0]);
 			} catch (error) {
 				//handle this error
 				console.log(error);
@@ -43,6 +45,8 @@ const ProductsTable = () => {
 			<Header as="h1" textAlign="center">
 				Available Products
 			</Header>
+			<Button onClick={() => history.push("/products/create")} circular icon="plus" color="teal" />
+
 			<Table celled>
 				<Table.Header>
 					<Table.Row>
@@ -59,7 +63,7 @@ const ProductsTable = () => {
 								<Table.Cell>{product.name}</Table.Cell>
 								<Table.Cell>{product.price}</Table.Cell>
 								<Table.Cell onClick={evt => console.log(evt.target)}>
-                                    <ContactSellerModal product={product} seller={seller ? seller : {}} trigger={<Button color="teal">Contact</Button>} />
+									<ContactSellerModal product={product} seller={seller ? seller : {}} trigger={<Button color="teal">Contact</Button>} />
 								</Table.Cell>
 							</Table.Row>
 						);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Icon, Modal, Divider, Grid } from "semantic-ui-react";
+import { Header, Icon, Modal, Grid } from "semantic-ui-react";
 
 const ContactSellerModal = ({ trigger, seller, product }) => {
 	if (seller) {

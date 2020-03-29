@@ -7,6 +7,16 @@ const ProductsCreation = () => {
 	const { Column, Row } = Grid;
 	const onSubmit = values => {
 		console.log(values);
+
+		// const { name, price } = values
+		// const seller = 1 //Get from state
+		// api.products.insert({
+		// 	seller,
+		// 	name,
+		// 	price
+		// }).then(response => {
+		// 	console.log(response)
+		// })
 	};
 	return (
 		<Form onSubmit={onSubmit}>

@@ -8,17 +8,14 @@ const RegistrationForm = () => {
 	const { Column, Row } = Grid;
 	const history = useHistory();
 	const onSubmit = values => {
-		const { name, address, phone } = values;
+		// const { name, address, phone } = values;
 		// api.sellers.insert({
 		// 	name,
 		// 	address,
 		// 	phone
 		// }).then(response => {
-		// 	console.log(response)
-
-		// 	api.sellers.get().then(response => {
-		// 		console.log(response)
-		//     });
+		// 	console.log(response.date.id) //store in browser
+		// 	return history.push("/products/create");
 		// });
 		return history.push("/products/create");
 	};

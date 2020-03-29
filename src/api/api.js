@@ -3,7 +3,7 @@ import http from './http'
 const ENDPOINTS = {
     SELLERS: '/api/sellers',
     BUYERS: '/api/buyers',
-    PRODUCTS: '/api/products'
+    PRODUCTS: '/api/products/'
 }
 
 export default {

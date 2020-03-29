@@ -2,22 +2,25 @@ import React from "react";
 import { Form, Field } from "react-final-form";
 import { Grid, Label, Button, Input } from "semantic-ui-react";
 import api from "../../../../api/api";
+import { useLocalStorage } from "../../../../hooks";
 import { useHistory } from "react-router-dom";
 
 const RegistrationForm = () => {
 	const { Column, Row } = Grid;
 	const history = useHistory();
+	const [seller, setSeller] = useLocalStorage("seller", {});
 	const onSubmit = values => {
-		// const { name, address, phone } = values;
-		// api.sellers.insert({
-		// 	name,
-		// 	address,
-		// 	phone
-		// }).then(response => {
-		// 	console.log(response.date.id) //store in browser
-		// 	return history.push("/products/create");
-		// });
-		return history.push("/products/create");
+		const { name, address, phone } = values;
+		api.sellers
+			.insert({
+				name,
+				address,
+				phone
+			})
+			.then(response => {
+				setSeller(response.data);
+				return history.push("/products/create");
+			});
 	};
 	return (
 		<Grid relaxed textAlign="center">

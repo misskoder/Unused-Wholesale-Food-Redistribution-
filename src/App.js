@@ -1,7 +1,7 @@
 import React from "react";
-import {Container} from 'semantic-ui-react'
+import { Container } from "semantic-ui-react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { LandingPage, SellerRegistration, ConsumerRegistration, DeliveryAgentRegistration, ProductsCreation } from "./pages";
+import { LandingPage, SellerRegistration, ConsumerRegistration, DeliveryAgentRegistration, ProductsCreation, ProductsTable } from "./pages";
 
 import "./App.css";
 
@@ -22,6 +22,9 @@ function App() {
 						</Route>
 						<Route path="/products/create">
 							<ProductsCreation />
+						</Route>
+						<Route path="/products">
+							<ProductsTable />
 						</Route>
 						<Route exact path="/">
 							<LandingPage />

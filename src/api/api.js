@@ -15,7 +15,7 @@ export default {
             return http.get(ENDPOINTS.SELLERS)
         },
         getById(id) {
-            return http.get(`${ENDPOINTS.SELLERS}/${id}`)
+            return http.get(`${ENDPOINTS.SELLERS}`, id)
         },
     },
     buyers: {

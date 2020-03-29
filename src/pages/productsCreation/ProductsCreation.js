@@ -1,22 +1,26 @@
 import React from "react";
 import { Grid, Header, Card, Label, Input, Button } from "semantic-ui-react";
 import { Form, Field } from "react-final-form";
+import { useLocalStorage } from "../../hooks";
 import api from "../../api/api";
 
 const ProductsCreation = () => {
-	const { Column, Row } = Grid;
+    const [seller] = useLocalStorage("seller")
+    const { Column, Row } = Grid;
+    const {id} = seller
+    console.log(seller);
 	const onSubmit = values => {
 		console.log(values);
 
-		// const { name, price } = values
-		// const seller = 1 //Get from state
-		// api.products.insert({
-		// 	seller,
-		// 	name,
-		// 	price
-		// }).then(response => {
-		// 	console.log(response)
-		// })
+		const { name, price } = values
+		const seller = id //Get from state
+		api.products.insert({
+			seller,
+			name,
+			price
+		}).then(response => {
+			console.log(response)
+		})
 	};
 	return (
 		<Form onSubmit={onSubmit}>

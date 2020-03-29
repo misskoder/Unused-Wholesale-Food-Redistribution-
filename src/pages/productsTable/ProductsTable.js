@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Table, Menu, Icon, Header } from "semantic-ui-react";
+import { Table, Menu, Icon, Header, Button } from "semantic-ui-react";
+import { ContactSellerModal } from "./@components";
 import api from "../../api/api";
 
 const ProductsTable = () => {
 	const [products, setProducts] = useState([]);
+	const [sellerId, setSellerId] = useState(null);
+	const [seller, setSeller] = useState(null);
+
 	useEffect(() => {
 		const fetchProducts = async () => {
 			try {
@@ -16,25 +20,47 @@ const ProductsTable = () => {
 		fetchProducts();
 	}, []);
 
-	console.log(products);
+	useEffect(() => {
+		const fetchSeller = async () => {
+			try {
+				// There currently isn't a route in the server to return a single seller by its id, so for now I'm getting all sellers and filtering
+				let sellerData = await api.sellers.getById(sellerId);
+                sellerData = sellerData.data.results.filter(seller => seller.id === sellerId)
+				setSeller(sellerData[0])
+			} catch (error) {
+				//handle this error
+				console.log(error);
+			}
+		};
+		fetchSeller();
+	}, [sellerId]);
 
+	const handleRow = product => {
+		setSellerId(product.seller);
+	};
 	return (
-        <>
-            <Header as='h1' textAlign='center'>Available Products</Header>
+		<>
+			<Header as="h1" textAlign="center">
+				Available Products
+			</Header>
 			<Table celled>
 				<Table.Header>
 					<Table.Row>
 						<Table.HeaderCell>Name</Table.HeaderCell>
 						<Table.HeaderCell>Price</Table.HeaderCell>
+						<Table.HeaderCell>Contact</Table.HeaderCell>
 					</Table.Row>
 				</Table.Header>
 
 				<Table.Body>
 					{products.map(product => {
 						return (
-							<Table.Row key={product.id}>
+							<Table.Row onClick={handleRow.bind(this, product)} key={product.id}>
 								<Table.Cell>{product.name}</Table.Cell>
 								<Table.Cell>{product.price}</Table.Cell>
+								<Table.Cell onClick={evt => console.log(evt.target)}>
+                                    <ContactSellerModal product={product} seller={seller ? seller : {}} trigger={<Button color="teal">Contact</Button>} />
+								</Table.Cell>
 							</Table.Row>
 						);
 					})}

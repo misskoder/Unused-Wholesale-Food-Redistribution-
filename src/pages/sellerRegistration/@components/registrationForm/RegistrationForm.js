@@ -1,10 +1,28 @@
-import React from 'react'
-import { Form, Field } from 'react-final-form'
-import {Grid, Label, Button, Input} from 'semantic-ui-react'
+import React from "react";
+import { Form, Field } from "react-final-form";
+import { Grid, Label, Button, Input } from "semantic-ui-react";
+import api from "../../../../api/api";
+import { useHistory } from "react-router-dom";
 
-const RegistrationForm = ({onSubmit}) => {
-    const {Column, Row} = Grid
-    return (
+const RegistrationForm = () => {
+	const { Column, Row } = Grid;
+	const history = useHistory();
+	const onSubmit = values => {
+		const { name, address, phone } = values;
+		// api.sellers.insert({
+		// 	name,
+		// 	address,
+		// 	phone
+		// }).then(response => {
+		// 	console.log(response)
+
+		// 	api.sellers.get().then(response => {
+		// 		console.log(response)
+		//     });
+		// });
+		return history.push("/products/create");
+	};
+	return (
 		<Grid relaxed textAlign="center">
 			<Form onSubmit={onSubmit}>
 				{({ handleSubmit }) => {
@@ -26,7 +44,7 @@ const RegistrationForm = ({onSubmit}) => {
 										Address
 									</Label>
 								</Column>
-								<Column>
+								<Column style={{ marginBottom: 14 }}>
 									<Field name="address" component={Input} />
 								</Column>
 							</Row>
@@ -51,6 +69,6 @@ const RegistrationForm = ({onSubmit}) => {
 			</Form>
 		</Grid>
 	);
-}
+};
 
-export default RegistrationForm
+export default RegistrationForm;

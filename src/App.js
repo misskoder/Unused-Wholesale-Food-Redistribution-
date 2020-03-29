@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { LandingPage, SellerRegistration, ConsumerRegistration, DeliveryAgentRegistration } from "./pages";
+import { LandingPage, SellerRegistration, ConsumerRegistration, DeliveryAgentRegistration, ProductsCreation } from "./pages";
 
 import "./App.css";
 
@@ -9,16 +9,19 @@ function App() {
 		<div className="App">
 			<Router>
 				<Switch>
-					<Route  path='/register/seller'>
+					<Route path="/register/seller">
 						<SellerRegistration />
 					</Route>
-					<Route  path='/register/consumers'>
+					<Route path="/register/consumers">
 						<ConsumerRegistration />
 					</Route>
-					<Route  path='/register/delivery'>
+					<Route path="/register/delivery">
 						<DeliveryAgentRegistration />
 					</Route>
-					<Route exact path='/'>
+					<Route path="/products/create">
+						<ProductsCreation />
+					</Route>
+					<Route exact path="/">
 						<LandingPage />
 					</Route>
 				</Switch>

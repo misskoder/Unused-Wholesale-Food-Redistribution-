@@ -11,7 +11,9 @@ from sellers.models import Seller
 # Create your views here.
 class SellerList(generics.ListCreateAPIView):
     serializer_class = SellerSerializer
-    queryset = ''
+
+    def get_queryset(self):
+        return Seller.objects.all()
 
     def post(self, request):
         serializer = SellerCreateSerializer(data=request.data)

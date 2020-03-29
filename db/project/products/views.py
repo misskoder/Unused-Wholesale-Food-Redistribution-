@@ -11,7 +11,9 @@ from products.models import Product
 # Create your views here.
 class ProductList(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
-    queryset = ''
+
+    def get_queryset(self):
+            return Product.objects.all()
 
     def post(self, request):
         serializer = ProductCreateSerializer(data=request.data)

@@ -15,6 +15,11 @@ const ConsumerRegistration = () => {
 						<Field
                             name="name"
                             component={Input}
+						/>
+						<Label>Address</Label>
+						<Field
+                            name="address"
+                            component={Input}
                         />
                         <Button onClick={handleSubmit}>Submit</Button>
 					</form>

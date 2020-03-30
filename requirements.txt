@@ -61,9 +61,10 @@ gevent==1.4.0
 glob2==0.7
 gmpy2==2.0.8
 greenlet==0.4.15
-gunicorn==19.9.0
+gunicorn==20.0.4
 h5py==2.9.0
 HeapDict==1.0.1
+heroku==0.1.4
 html5lib==1.0.1
 idna==2.8
 imageio==2.6.0
@@ -135,10 +136,13 @@ Pillow==6.2.0
 pkginfo==1.5.0.1
 pluggy==0.13.0
 ply==3.11
+postgres==3.0.0
 prometheus-client==0.7.1
 prompt-toolkit==2.0.10
 psutil==5.6.3
-psycopg2==2.7.7
+psycopg2==2.7.5
+psycopg2-binary==2.8.4
+psycopg2-pool==1.1
 ptyprocess==0.6.0
 py==1.8.0
 pycodestyle==2.5.0
@@ -160,7 +164,7 @@ pytest-astropy==0.5.0
 pytest-doctestplus==0.4.0
 pytest-openfiles==0.4.0
 pytest-remotedata==0.3.2
-python-dateutil==2.8.0
+python-dateutil==1.5
 python-dotenv==0.12.0
 pytz==2019.3
 PyWavelets==1.0.3
@@ -212,7 +216,7 @@ virtualenv==20.0.15
 wcwidth==0.1.7
 webencodings==0.5.1
 Werkzeug==0.16.0
-whitenoise==4.1.2
+whitenoise==5.0.1
 widgetsnbextension==3.5.1
 wrapt==1.11.2
 wurlitzer==1.0.3

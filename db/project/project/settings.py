@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
-import dotenv
+from dotenv import load_dotenv
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -105,8 +105,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-# This should already be in your settings.py
-django_heroku.settings(locals())
+
 # This is new
 del DATABASES['default']['OPTIONS']['sslmode']
 
@@ -148,3 +147,7 @@ USE_TZ = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+# This should already be in your settings.py
+django_heroku.settings(locals())

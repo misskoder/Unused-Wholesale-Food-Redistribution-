@@ -1,1 +1,1 @@
-web: sh -c 'cd ./project/ && exec gunicorn get-bread.wsgi --log-file -'
+web: gunicorn --pythonpath app app.wsgi
